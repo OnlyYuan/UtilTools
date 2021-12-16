@@ -1,0 +1,3 @@
+rootProject.name = "UtilTools"
+include ':app'
+include ':toolslibrary'
