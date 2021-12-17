@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import com.caiyuanzi.utiltools.R
 import com.caiyuanzi.utiltools.databinding.ActivityMainBinding
 import com.caiyuanzi.utiltools.model.datasource.GetMemberDatasource
+import com.caiyuanzi.utiltools.utils.net.DataHandler
 import com.caiyuanzi.utiltools.utils.net.ExceptionHandler
 import com.caiyuanzi.utiltools.viewmodel.MainViewModel
 import kotlinx.coroutines.Dispatchers
@@ -29,27 +30,21 @@ class MainActivity : AppCompatActivity() {
     private fun initLinsener() {
         mBinding.loginBtn.setOnClickListener {
                 lifecycleScope.launch {
-                    mm()
+                    DataHandler.performCollect(
+                        this@MainActivity,
+                        block = {
+                            mViewModel.getMemberMsg("")
+                        },
+                        onError = {
+                            Log.i("111","----->${it.message.toString()}")
+                        },
+                        onSuccess = {
+                            Log.i("111","----->成功")
+                        }
+                    )
                 }
         }
     }
 
-    private suspend fun mm(){
-        mViewModel.getMemberMsg("")?.asFlow()
-            ?.flowOn(Dispatchers.IO)
-            ?.onStart {
 
-            }
-            ?.onCompletion {
-
-            }
-            ?.catch {
-                //   ExceptionHandler.handle(this@MainActivity, throwable,true)
-                Log.i("11","--->aaaaa222")
-            }
-            ?.flowOn(Dispatchers.Main)
-            ?.collect {
-                Log.i("11","--->aaaaa")
-            }
-    }
 }
