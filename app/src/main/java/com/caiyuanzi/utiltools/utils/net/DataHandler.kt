@@ -2,6 +2,7 @@ package com.caiyuanzi.utiltools.utils.net
 
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 
@@ -10,6 +11,8 @@ object DataHandler {
     suspend fun <ResultType> performCollect(
         context: Context,
         block:suspend()-> ResultType?,
+        showLoading:Boolean = true,
+        showToast: Boolean = true,
         onError:(suspend (Throwable)->Unit)? =null,
         onSuccess:(suspend (ResultType?) -> Unit)?= null
     ){
@@ -23,7 +26,7 @@ object DataHandler {
 
             }
             .catch { throwable ->
-                ExceptionHandler.handle(context, throwable,true)
+                ExceptionHandler.handle(context, throwable,showToast)
                 onError?.invoke(throwable)
                 Log.i("11","--->aaaaa222")
             }
