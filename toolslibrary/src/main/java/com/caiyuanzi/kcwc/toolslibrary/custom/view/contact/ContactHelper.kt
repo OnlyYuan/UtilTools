@@ -1,4 +1,4 @@
-package com.tgf.kcwc.toolslibrary.custom.view.contact
+package com.caiyuanzi.kcwc.toolslibrary.custom.view.contact
 
 
 import android.annotation.SuppressLint
@@ -6,7 +6,7 @@ import android.content.Context
 import android.provider.ContactsContract
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.tgf.kcwc.toolslibrary.custom.common.getMD5
+import com.caiyuanzi.kcwc.toolslibrary.custom.common.getMD5
 import com.caiyuanzi.utiltools.model.ContactEntity
 
 class ContactHelper {

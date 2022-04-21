@@ -1,4 +1,4 @@
-package com.tgf.kcwc.toolslibrary.custom.net
+package com.caiyuanzi.kcwc.toolslibrary.custom.net
 
 import android.content.Context
 import android.util.Log
@@ -28,7 +28,7 @@ object DataHandler {
 
             }
             .catch { throwable ->
-                ExceptionHandler.handle(context, throwable,showToast)
+                ExceptionHandler.handle(context, throwable, showToast)
                 onError?.invoke(throwable)
                 Log.i("11","--->aaaaa222")
             }

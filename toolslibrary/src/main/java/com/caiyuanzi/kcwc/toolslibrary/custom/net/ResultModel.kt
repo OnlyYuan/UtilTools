@@ -1,10 +1,10 @@
-package com.tgf.kcwc.toolslibrary.custom.net
+package com.caiyuanzi.kcwc.toolslibrary.custom.net
 
 
 data class ResultModel<T>(
     val code:Int = -1,
-    val data:DataModel<T>,
-    val error:ErrorMsg?
+    val data: DataModel<T>,
+    val error: ErrorMsg?
 ) {
 
     companion object {
@@ -15,7 +15,7 @@ data class ResultModel<T>(
         return code == CODE_SUCCESS
     }
 
-    private fun getDataModelSuccess():DataModel<T>?{
+    private fun getDataModelSuccess(): DataModel<T>?{
         if (!isSuccess()){
             val errorMsg = error?.message
             throw RuntimeException( if (errorMsg.isNullOrEmpty()){
@@ -58,7 +58,7 @@ data class ResultModel<T>(
 
     data class DataModel<T>(
         val data: T?,
-        val page_info:PageInfo?
+        val page_info: PageInfo?
     )
 
     data class PageInfo(

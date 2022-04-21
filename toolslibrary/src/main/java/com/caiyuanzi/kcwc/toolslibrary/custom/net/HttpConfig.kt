@@ -1,4 +1,4 @@
-package com.tgf.kcwc.toolslibrary.custom.net
+package com.caiyuanzi.kcwc.toolslibrary.custom.net
 
 class HttpConfig(
     var connectTimeOut: Long = 10,

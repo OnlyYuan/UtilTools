@@ -1,4 +1,4 @@
-package com.tgf.kcwc.toolslibrary.custom.net
+package com.caiyuanzi.kcwc.toolslibrary.custom.net
 
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
@@ -21,7 +21,7 @@ class RetrofitUtils private constructor(){
         val holder = RetrofitUtils()
     }
 
-   fun init(httpConfig: HttpConfig,gson: Gson = Gson()){
+   fun init(httpConfig: HttpConfig, gson: Gson = Gson()){
        val okHttpClient = OkHttpClient.Builder()
            .connectTimeout(httpConfig.connectTimeOut,TimeUnit.SECONDS)
            .readTimeout(httpConfig.readTimeout,TimeUnit.SECONDS)
